@@ -1,9 +1,8 @@
 /* 全局滚动设置 - 确保统一只有一个水平滚动条 */
 html, body, #root {
-  height: 100%;
   width: 100%;
-  overflow-x: auto !important;  /* 允许水平滚动 */
-  overflow-y: auto !important;  /* 允许垂直滚动 */
+  height: 100%;
+  overflow: hidden;
   min-width: 1200px;
 }
 
