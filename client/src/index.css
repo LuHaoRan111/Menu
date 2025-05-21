@@ -1,0 +1,1063 @@
+/* 全局滚动设置 - 确保统一只有一个水平滚动条 */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: auto !important;  /* 允许水平滚动 */
+  overflow-y: auto !important;  /* 允许垂直滚动 */
+  min-width: 1200px;
+}
+
+/* 防止内部容器产生水平滚动条 */
+.ant-layout, 
+.ant-layout-content,
+.kingsoft-content,
+.ant-card,
+.ant-card-body,
+.kingsoft-table,
+.ant-table-wrapper,
+.ant-table,
+.ant-table-container,
+.ant-spin-nested-loading,
+.ant-spin-container {
+  overflow-x: visible !important;
+}
+
+/* 确保特定容器可以垂直滚动 */
+.kingsoft-content {
+  overflow-y: auto !important;
+  height: calc(100vh - 140px);
+}
+
+.kingsoft-table .ant-table-body {
+  overflow-y: auto !important;
+  max-height: calc(100vh - 300px) !important;
+}
+
+/* 确保表格最小宽度 */
+.ant-table {
+  min-width: 1100px;
+}
+
+/* 确保Modal最小宽度 */
+.ant-modal-content {
+  min-width: 600px;
+  overflow: visible !important;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  display: block !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* 基础字体大小调整 */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* 字体大小调整 */
+.ant-typography, .ant-text {
+  font-size: 16px;
+}
+
+.ant-btn {
+  font-size: 16px;
+  height: auto;
+  padding: 6px 16px;
+}
+
+.ant-input, .ant-input-number, .ant-select, .ant-select-selector, .ant-radio, .ant-checkbox, .ant-form-item-label > label {
+  font-size: 16px !important;
+}
+
+.ant-table {
+  font-size: 16px;
+}
+
+.ant-menu-item {
+  font-size: 16px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+}
+
+.ant-form-item-label > label {
+  font-size: 16px;
+  height: 32px;
+}
+
+.ant-card-head-title, .ant-modal-title {
+  font-size: 18px !important;
+}
+
+.ant-modal-body {
+  font-size: 16px;
+}
+
+.ant-tag {
+  font-size: 14px !important;
+  padding: 2px 8px !important;
+}
+
+/* 基本布局样式 */
+body, html {
+  overflow: auto !important; /* 修改为auto允许滚动 */
+  height: 100%;
+  width: 100%;
+}
+
+/* 布局容器 */
+.kingsoft-content {
+  height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  overflow: auto !important; /* 修改为auto允许滚动 */
+}
+
+.kingsoft-content .ant-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important; /* 修改为visible允许内容溢出 */
+}
+
+.kingsoft-content .ant-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important; /* 修改为visible允许内容溢出 */
+  padding: 16px;
+}
+
+/* 表格基本样式 */
+.kingsoft-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important; /* 修改为visible允许内容溢出 */
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  height: auto !important; /* 修改为auto自适应高度 */
+  min-height: 300px; /* 设置最小高度 */
+}
+
+/* 表格内部容器样式 */
+.kingsoft-table .ant-table-wrapper,
+.kingsoft-table .ant-spin-nested-loading,
+.kingsoft-table .ant-spin-container,
+.kingsoft-table .ant-table,
+.kingsoft-table .ant-table-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important; /* 修改为visible允许内容溢出 */
+}
+
+/* 只有表格主体可以滚动 */
+.kingsoft-table .ant-table-body {
+  overflow-y: auto !important; /* 确保表格内容可以滚动 */
+  flex: 1;
+  height: auto !important; /* 自动调整高度 */
+  min-height: 200px !important; /* 确保有最小高度 */
+  max-height: none !important; /* 移除最大高度限制 */
+}
+
+/* 表格头部固定 */
+.kingsoft-table .ant-table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f5f5f5;
+}
+
+/* 勾选框样式 */
+.kingsoft-table .ant-table-selection-column {
+  width: 48px !important;
+  min-width: 48px !important;
+  padding-left: 8px !important;
+  padding-right: 0 !important;
+}
+
+.kingsoft-table .ant-checkbox-wrapper {
+  padding: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 表格行样式 */
+.kingsoft-table .ant-table-tbody > tr {
+  transition: background-color 0.2s ease;
+  height: 38px !important; /* 固定行高 */
+}
+
+.kingsoft-table .ant-table-tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* 表格单元格样式 */
+.kingsoft-table .ant-table-tbody > tr > td {
+  padding: 4px 8px !important;
+  vertical-align: middle;
+  height: 38px !important; /* 固定单元格高度 */
+  line-height: 30px !important; /* 调整行高 */
+}
+
+.kingsoft-table .ant-table-thead > tr > th {
+  padding: 6px 8px !important;
+  background-color: #f5f5f5;
+  height: 42px !important; /* 表头稍微高一点 */
+}
+
+/* 分页器样式 - 修复分页器不可见问题 */
+.kingsoft-content .ant-pagination {
+  position: relative !important; /* 改为相对定位 */
+  margin-top: 16px !important; /* 增加上边距 */
+  padding: 8px 0 !important;
+  text-align: right !important;
+  background-color: #f7f7f7 !important;
+  border-radius: 4px !important;
+  z-index: 5 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+/* 调整分页器的按钮尺寸 */
+.kingsoft-table .ant-pagination-item,
+.kingsoft-table .ant-pagination-prev,
+.kingsoft-table .ant-pagination-next,
+.kingsoft-table .ant-pagination-jump-prev,
+.kingsoft-table .ant-pagination-jump-next {
+  min-width: 28px !important;
+  height: 24px !important;
+  line-height: 22px !important;
+  font-size: 12px !important;
+}
+
+/* 调整分页器的输入框大小 */
+.kingsoft-table .ant-pagination-options-quick-jumper input {
+  height: 24px !important;
+  font-size: 12px !important;
+  padding: 0 6px !important;
+}
+
+/* 调整表格主体区域，增加题目显示区域的大小 */
+.kingsoft-table .ant-table-body {
+  flex: 1; /* 允许表格内容区域伸展 */
+  max-height: calc(100vh - 250px) !important; /* 从300px减小到250px，为题目区域留出更多空间 */
+}
+
+/* 调整表格行高 */
+.kingsoft-table .ant-table-tbody > tr > td {
+  padding: 10px 16px !important; /* 减小单元格内边距 */
+  font-size: 16px !important; /* 增大表格字体 */
+}
+
+/* 操作按钮样式 */
+.kingsoft-table .ant-table-tbody > tr > td:last-child {
+  text-align: center;
+}
+
+.kingsoft-table .ant-space {
+  gap: 8px;
+}
+
+/* 侧边栏样式 */
+.ant-layout-sider {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  background-color: #000 !important;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 菜单项样式 */
+.ant-menu-dark {
+  background-color: #000 !important;
+}
+
+.ant-menu-dark .ant-menu-item {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  transition: all 0.1s !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: #1f1f1f !important;
+  width: 100% !important;
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background-color: #1f1f1f !important;
+  color: #1890ff !important;
+}
+
+.ant-menu-dark .ant-menu-item a {
+  color: #fff !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected a {
+  color: #1890ff !important;
+}
+
+.ant-menu-dark .ant-menu-item::after {
+  display: none !important;
+}
+
+.ant-menu-dark .ant-menu-item .ant-menu-item-icon {
+  margin-right: 10px !important;
+}
+
+/* 顶部标题样式 */
+.logo-container {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* 金山WPS标题样式 */
+.kingsoft-header {
+  background-color: #000;
+  color: white;
+  height: 50px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.kingsoft-tab {
+  background-color: #f5f5f5;
+  padding: 5px 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.kingsoft-tab-item {
+  padding: 6px 16px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.kingsoft-tab-active {
+  background-color: #e6f7ff;
+  border-top: 2px solid #1890ff;
+}
+
+.kingsoft-tab-inactive {
+  background-color: #fff;
+}
+
+/* 题型选择器样式 */
+.kingsoft-type-selector {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+  background-color: rgba(247, 247, 247, 0.5);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.kingsoft-type-button {
+  margin-right: 10px;
+  border: 1px solid #d9d9d9;
+  background-color: transparent;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, border-color;
+}
+
+.kingsoft-type-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #91caff;
+}
+
+.kingsoft-type-button:active {
+  transform: scale(0.95) translateY(-1px);
+  transition: all 0.1s ease;
+}
+
+.kingsoft-type-button-active {
+  background-color: #e6f4ff;
+  border-color: #1890ff;
+  color: #1890ff;
+  font-weight: 600;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(24, 144, 255, 0.2);
+  transition: all 0.3s var(--transition-bezier);
+  transform: translateZ(0);
+}
+
+.kingsoft-type-button-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 3px;
+  background-color: #1890ff;
+  border-radius: 2px 2px 0 0;
+  transition: all 0.3s ease;
+}
+
+/* 按钮波纹效果 */
+.kingsoft-type-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(24, 144, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0s;
+}
+
+.kingsoft-type-button:active::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+  transition: all 0.6s ease-out;
+}
+
+/* 优化按钮的移动交互 */
+.kingsoft-type-selector > div {
+  display: flex;
+  align-items: center;
+}
+
+/* 统一所有动画效果 */
+
+/* 基础渐入效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 从上到下渐入效果 */
+@keyframes fadeInDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 从右到左渐入效果 */
+@keyframes slideInFromRight {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* 表格行渐进加载动画 */
+@keyframes fadeInRow {
+  from { 
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 弹窗缩放动画 */
+@keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 应用动画效果到元素 */
+.kingsoft-table .ant-table-tbody > tr {
+  animation: fadeInRow 0.2s ease-in-out;
+  animation-fill-mode: both;
+}
+
+.fade-in-row {
+  animation-name: fadeInRow;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+/* 优化模态框动画 */
+.question-preview {
+  opacity: 1 !important;
+}
+
+/* 优化按钮交互 */
+
+/* 预览模态框内容优化 */
+.preview-modal .ant-modal-body {
+  padding: 16px 24px !important;
+}
+
+.preview-modal .ant-modal-content {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* 下拉菜单位置控制 */
+.ant-dropdown.ant-dropdown-placement-bottomRight {
+  margin-top: 2px;
+}
+
+/* 布局容器样式 */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-layout {
+  flex: 1;
+  display: flex;
+}
+
+/* 增强内容区域样式 */
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.markdown-content {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.markdown-content h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.markdown-content h2 {
+  font-size: 24px;
+  margin: 24px 0 16px;
+}
+
+.markdown-content h3 {
+  font-size: 18px;
+  margin: 18px 0 12px;
+}
+
+.markdown-content p {
+  margin-bottom: 16px;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+/* 修改菜单触发器样式 */
+.sider-trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sider-trigger:hover {
+  color: #1890ff;
+}
+
+/* 学习心得占位符样式 */
+.study-note-placeholder {
+  width: 100%;
+  height: 300px;
+  border: 2px dashed #d9d9d9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .logo-container {
+    font-size: 12px;
+  }
+}
+
+/* 美化卡片样式 */
+.ant-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 表格样式美化 */
+.ant-table-thead > tr > th {
+  background-color: #f5f5f5;
+}
+
+/* 按钮美化 */
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* 表格样式美化 */
+.ant-table-thead > tr > th {
+  background-color: #f5f5f5;
+}
+
+/* 按钮美化 */
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+/* 防止Card组件产生水平滚动条 */
+.kingsoft-content .ant-card,
+.kingsoft-content .ant-card-body {
+  overflow-x: visible !important;
+}
+
+/* 确保表格在缩放时不会变形，但不显示水平滚动条 */
+.ant-table {
+  overflow-x: visible !important;
+}
+
+/* 去除表格容器的水平滚动条 */
+.ant-table-wrapper,
+.kingsoft-table,
+.kingsoft-table .ant-table-wrapper,
+.kingsoft-table .ant-spin-nested-loading,
+.kingsoft-table .ant-spin-container,
+.kingsoft-table .ant-table,
+.kingsoft-table .ant-table-container {
+  overflow-x: visible !important;
+}
+
+/* 确保表格内容可以垂直滚动 */
+.kingsoft-table .ant-table-body {
+  overflow-x: visible !important;
+  overflow-y: auto !important;
+  max-height: calc(100vh - 300px) !important;
+}
+
+/* 确保Modal在缩放时不会变形且不产生滚动条 */
+.ant-modal-content {
+  overflow: visible !important;
+}
+
+.ant-modal-body {
+  overflow: visible !important;
+}
+
+/* 显示滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  display: block !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 3px;
+  display: block !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  display: block !important;
+}
+
+/* 下拉菜单样式 - 完全重写动画和定位，彻底解决闪烁问题 */
+.ant-dropdown {
+  animation: none !important;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  position: absolute !important;
+  opacity: 1 !important;
+  backface-visibility: hidden;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05) !important;
+  z-index: 1050 !important;
+}
+
+/* 下拉菜单内容 */
+.ant-dropdown-menu {
+  padding: 4px 0;
+  border-radius: 2px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  box-shadow: none !important; /* 移除子元素阴影 */
+}
+
+/* 下拉菜单选项 */
+.ant-dropdown-menu-item {
+  padding: 5px 12px;
+  clear: both;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.kingsoft-search-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 按钮样式 */
+.batch-action-button {
+  margin-left: 8px;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.batch-action-button:disabled {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+}
+
+.add-question-button {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out !important;
+  position: relative;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.add-question-button:hover {
+  background-color: #40a9ff;
+}
+
+/* 模态框样式 */
+.question-preview {
+  animation: none !important;
+}
+
+.ant-modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  transition: none !important;
+  opacity: 1 !important;
+}
+
+.ant-modal-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.ant-modal {
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+  pointer-events: none;
+  animation: none !important;
+  opacity: 1 !important;
+  transform: translateZ(0) !important;
+}
+
+.ant-modal-content {
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  animation: modalScaleIn 0.15s cubic-bezier(0.23, 1, 0.32, 1) forwards !important;
+}
+
+/* 题目相关样式调整 */
+.question-content, .question-analysis {
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+.question-title {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin-bottom: 12px !important;
+}
+
+.question-options li {
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+  margin-bottom: 8px !important;
+}
+
+/* AI生成题目组件样式调整 */
+.aiTitle {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+}
+
+.aiGenerateForm .ant-form-item-label > label {
+  font-size: 16px !important;
+}
+
+.aiGenerateForm .ant-btn {
+  font-size: 16px !important;
+  height: 44px !important;
+}
+
+/* 调整Card标题样式 */
+.ant-card-head-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+/* 调整Modal样式 */
+.ant-modal-header {
+  padding: 16px 24px !important;
+}
+
+.ant-modal-title {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+.ant-modal-body {
+  padding: 24px !important;
+  font-size: 16px !important;
+}
+
+.ant-modal-footer {
+  padding: 16px 24px !important;
+}
+
+/* 按钮颜色主题 */
+:root {
+  --button-primary: #1890ff;
+  --button-hover: #40a9ff;
+  --button-active: #096dd9;
+  --button-light: #e6f7ff;
+  --button-border: #91d5ff;
+  --transition-bezier: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 题型按钮切换动画 */
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 题型按钮选中滑动动画 */
+@keyframes buttonSlideIn {
+  from {
+    transform: translateX(-5px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 按钮点击波纹动画 */
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+/* 为按钮添加载入动画，但仅在页面首次加载时应用 */
+.kingsoft-type-selector.initial-load button:nth-child(1) {
+  animation: buttonFadeIn 0.3s var(--transition-bezier) 0.1s both;
+}
+
+.kingsoft-type-selector.initial-load button:nth-child(2) {
+  animation: buttonFadeIn 0.3s var(--transition-bezier) 0.2s both;
+}
+
+.kingsoft-type-selector.initial-load button:nth-child(3) {
+  animation: buttonFadeIn 0.3s var(--transition-bezier) 0.3s both;
+}
+
+.kingsoft-type-selector.initial-load button:nth-child(4) {
+  animation: buttonFadeIn 0.3s var(--transition-bezier) 0.4s both;
+}
+
+/* 按钮活动状态动画 - 改为过渡效果而非动画 */
+.kingsoft-type-button-active {
+  transition: all 0.3s var(--transition-bezier);
+}
+
+/* 让按钮点击时有反馈效果 */
+.kingsoft-type-button:active {
+  transform: scale(0.95) translateY(-1px);
+  transition: all 0.1s ease;
+}
+
+/* 添加波纹点击效果 */
+.kingsoft-type-button span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(24, 144, 255, 0.3);
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  animation: ripple 0.6s linear;
+  transform: translate(-50%, -50%);
+}
+
+/* 增强题型选择器整体视觉效果 */
+
+/* 确保表格在缩放时不会变形 */
+.ant-table {
+  overflow-x: visible !important;
+}
+
+/* 确保表格在缩放时可以水平滚动 */
+.ant-table-wrapper {
+  overflow-x: auto;
+}
+
+/* 确保Modal在缩放时不会变形 */
+.ant-modal-content {
+  overflow: visible !important;
+} 

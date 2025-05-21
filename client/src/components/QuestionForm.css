@@ -1,0 +1,89 @@
+/* 从根本上修复Modal滚动问题 */
+.question-form-modal {
+  /* 移除可能导致双滚动的弹性布局 */
+  position: relative;
+}
+
+.question-form-modal .ant-modal-content {
+  /* 使用固定布局模式 */
+  position: relative;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.question-form-modal .ant-modal-header {
+  /* 标题区固定 */
+  position: relative;
+}
+
+.question-form-modal .ant-modal-body {
+  /* 内容区域单独滚动 */
+  max-height: calc(90vh - 110px); /* 减去头部和底部的高度 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px;
+}
+
+.question-form-modal .ant-modal-footer {
+  /* 底部区固定 */
+  position: relative;
+}
+
+/* 确保表单内容不会溢出 */
+.animated-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 处理表单项内容过多导致的水平滚动 */
+.animated-form .ant-form-item {
+  margin-bottom: 16px;
+  max-width: 100%;
+}
+
+/* 输入框和选择器样式优化 */
+.animated-form .ant-input,
+.animated-form .ant-select,
+.animated-form .ant-select-selector,
+.animated-form .ant-input-textarea,
+.animated-form .ant-input-number {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 文本域自动换行 */
+.animated-form textarea.ant-input {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 修复选项布局 */
+.animated-form .ant-space {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* 单选按钮和复选框组布局 */
+.animated-form .ant-radio-group,
+.animated-form .ant-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 单选和复选框项间距 */
+.animated-form .ant-radio-wrapper,
+.animated-form .ant-checkbox-wrapper {
+  margin-bottom: 8px;
+  white-space: normal;
+}
+
+/* 确保长文本在单选和复选框中不会溢出 */
+.animated-form .ant-radio-wrapper span:last-child,
+.animated-form .ant-checkbox-wrapper span:last-child {
+  white-space: normal;
+  word-break: break-word;
+} 

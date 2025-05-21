@@ -1,0 +1,305 @@
+/* AIQuestionPage.css */
+
+/* 整体容器 */
+.ai-question-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 页面头部 */
+.page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 主内容包装器 */
+.main-content-wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  min-width: 1000px;
+}
+
+/* 左侧面板 */
+.left-panel {
+  width: 350px;
+  min-width: 350px;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+/* 右侧面板 */
+.right-panel {
+  flex: 1;
+  min-width: 550px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* 操作栏 */
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.result-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 复选框容器 */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.selected-count {
+  margin-left: 8px;
+  color: #666;
+}
+
+/* 题目列表 */
+.question-list {
+  width: 100%;
+}
+
+/* 题目卡片 */
+.question-card {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+/* 题目标题包装器 */
+.question-title-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 22px;
+}
+
+/* 题目标题 */
+.question-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* 空区域 */
+.empty-area {
+  color: #999;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 16px;
+}
+
+/* 问题内容样式 */
+.question-content {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* 选项容器样式 */
+.options-container {
+  margin-top: 12px;
+}
+
+/* 单个选项样式 */
+.option-item {
+  margin-top: 8px;
+}
+
+/* 选项标签样式 */
+.option-label {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+/* 选项文本样式 */
+.option-text {
+  line-height: 1.6;
+}
+
+/* 答案区域样式 */
+.answer-section {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed #e8e8e8;
+}
+
+/* 答案标签样式 */
+.answer-label {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+/* 答案内容样式 */
+.answer-content {
+  color: #1890ff;
+}
+
+/* 多选题答案内容样式 */
+.multi-answer-content {
+  color: #722ed1;
+  font-weight: 500;
+}
+
+/* 多选题答案提示 */
+.multi-answer-hint {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* 代码容器样式 */
+.code-container {
+  margin-top: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+}
+
+/* 代码头部样式 */
+.code-header {
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e8e8e8;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* 代码块样式 */
+.code-block {
+  background-color: #f8f8f8;
+  padding: 12px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+  border-radius: 0 0 4px 4px;
+}
+
+/* 解析区域样式 */
+.analysis-section {
+  margin-top: 12px;
+}
+
+/* 解析标签样式 */
+.analysis-label {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+/* 解析内容样式 */
+.analysis-content {
+  color: #52c41a;
+}
+
+/* 题目卡片标题样式调整 */
+.ant-card-head-title {
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 0 !important;
+}
+
+/* 确保复选框与文本垂直对齐 */
+.question-title-wrapper .ant-checkbox-wrapper {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 复选框和标题间的样式 */
+.question-title-wrapper .ant-checkbox {
+  top: 0 !important;
+  margin-right: 8px;
+}
+
+/* 题目卡片外观调整 */
+.question-card {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+/* 卡片头部样式 */
+.ant-card-head {
+  min-height: 48px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* 复选框组件样式 */
+.ant-checkbox-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.ant-checkbox {
+  top: 0 !important;
+  align-self: center !important;
+}
+
+.ant-checkbox-inner {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.ant-card-meta-title {
+  margin-bottom: 0 !important;
+  padding-right: 24px !important;
+}
+
+.ant-checkbox-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: normal !important;
+}
+
+.ant-checkbox-inner {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.ant-checkbox {
+  top: 0 !important;
+  margin-right: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 修复题目标题包装器样式，确保复选框与文字对齐 */
+.question-title-wrapper {
+  display: flex !important;
+  align-items: center !important; 
+  min-height: 22px !important;
+  line-height: normal !important;
+}
+
+/* 确保题目标题与复选框对齐 */
+.question-title {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 22px !important;
+  line-height: normal !important;
+} 
